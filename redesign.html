@@ -120,31 +120,30 @@ section { padding-block: 96px; }
 .step.on p { color: var(--mute); }
 .step:focus-visible { outline: 1px solid var(--ink); outline-offset: 6px; }
 
-/* where you'll work: every sector, US focus solid, global record outlined */
+/* what we work on: US focus in ink, global record in grey, photo on hover */
 .where { overflow-x: clip; }
 .where .label { color: var(--mute); margin-bottom: 24px; }
 .where .intro { max-width: 30ch; font-size: clamp(22px, 3vw, 36px); line-height: 1.15; letter-spacing: -0.02em; font-weight: 500; margin-bottom: 56px; }
 .sectors { list-style: none; margin: 0; padding: 0; border-bottom: 1px solid var(--rule); }
-.sector { position: relative; display: grid; grid-template-columns: 2.6em 1fr auto; align-items: center; gap: 12px; padding-block: 14px; border-top: 1px solid var(--rule); }
-.sector .n, .sector .tag { color: var(--mute); }
-.sector .name { font-size: clamp(30px, 9.2vw, 116px); font-weight: 800; letter-spacing: -0.045em; line-height: .95; text-transform: uppercase; transition: color .3s ease, -webkit-text-stroke-color .3s ease, transform .4s ease; }
-.sector.global .name { color: transparent; -webkit-text-stroke: 1px var(--mute); }
-.sector .tag { display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 6px; font-size: 10px; }
-.sector .name { white-space: nowrap; }
-.sector img { width: 64px; height: 48px; object-fit: cover; }
+.sector { position: relative; display: grid; grid-template-columns: 1fr 96px; grid-template-areas: "n tag" "name tag"; column-gap: 16px; row-gap: 6px; align-items: end; padding-block: 16px; border-top: 1px solid var(--rule); }
+.sector .n { grid-area: n; color: var(--mute); }
+.sector .name { grid-area: name; font-size: clamp(34px, 10.5vw, 120px); font-weight: 700; letter-spacing: -0.035em; line-height: .95; text-transform: uppercase; white-space: nowrap; transition: color .3s ease, transform .4s ease; }
+.sector.global .name { color: var(--dim); }
+.sector .tag { grid-area: tag; display: flex; flex-direction: column; align-items: stretch; gap: 8px; color: var(--mute); font-size: 11px; text-align: right; }
 .sector.us .tag { color: var(--signal); }
+.sector img { order: -1; width: 96px; height: 72px; object-fit: cover; }
 @media (hover: hover) {
   .sector img { position: absolute; left: 0; top: 0; width: 260px; height: 195px; opacity: 0; pointer-events: none; z-index: 2; transition: opacity .3s ease; }
   .sector:hover img { opacity: 1; }
-  .sector:hover .name { transform: translateX(0.12em); }
-  .sector.global:hover .name { color: var(--ink); -webkit-text-stroke-color: var(--ink); }
+  .sector:hover .name { transform: translateX(0.1em); }
+  .sector.global:hover .name { color: var(--ink); }
 }
 
 /* manifesto */
 .manifesto { overflow-x: clip; padding-block: 120px; }
 .m { font-size: 14.5vw; font-weight: 800; letter-spacing: -0.055em; line-height: .88; text-transform: uppercase; margin-bottom: 0.12em; transition: transform 1.1s cubic-bezier(.2,.7,.1,1); }
 .m2 { text-align: center; }
-.m3 { text-align: right; color: transparent; -webkit-text-stroke: 1px var(--ink); }
+.m3 { text-align: right; color: var(--mute); }
 .js .m1 { transform: translateX(-12vw); }
 .js .m3 { transform: translateX(12vw); }
 .js .m2 { transform: translateY(0.25em); }
@@ -203,9 +202,9 @@ footer .credits { color: var(--dim); max-width: 760px; line-height: 1.7; font-si
   .f5 img { aspect-ratio: 4 / 3; }
   .cols { grid-template-columns: repeat(3, 1fr); gap: 40px; }
   .steps { grid-template-columns: repeat(3, 1fr); gap: 40px; }
-  .sector { grid-template-columns: 4em 1fr auto; padding-block: 10px; }
-  .sector .name { font-size: clamp(38px, 7.4vw, 116px); }
-  .sector .tag { flex-direction: row; align-items: center; gap: 12px; font-size: 12px; }
+  .sector { grid-template-columns: 4em 1fr auto; grid-template-areas: "n name tag"; align-items: center; padding-block: 12px; }
+  .sector .name { font-size: clamp(40px, 7.4vw, 116px); }
+  .sector .tag { display: block; font-size: 12px; }
   .m { font-size: clamp(34px, 9.4vw, 160px); white-space: nowrap; margin-bottom: 0; }
   .faq .wrap { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
 }
@@ -316,7 +315,7 @@ footer .credits { color: var(--dim); max-width: 760px; line-height: 1.7; font-si
 
 <section class="where rule">
   <div class="wrap">
-    <h2 class="mono label">Where you’ll work</h2>
+    <h2 class="mono label">What we work on</h2>
     <p class="intro">Forward deployed engineers work alongside cities, utilities and public agencies across the US, building the systems behind the services people use every day.</p>
     <ol class="sectors">
       <li class="sector us"><span class="n mono">01</span><span class="name">Waste</span><span class="tag mono">US<img src="assets/photos/waste.jpg" alt="Paper bales at a recycling facility" loading="lazy" width="400" height="300"></span></li>
