@@ -9,7 +9,7 @@
 <link rel="icon" href="assets/sandlogodark.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Lilex:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Lilex:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #faf9f5;
@@ -19,7 +19,7 @@
   --rule: #d9d7cf;
   --accent: #80a2b4;
   --sans: "Inter Tight", system-ui, sans-serif;
-  --serif: "Source Serif 4", Georgia, serif;
+  --serif: "Inter Tight", system-ui, sans-serif;
   --mono: "Lilex", ui-monospace, monospace;
   --gutter: 20px;
   --max: 1180px;
@@ -28,7 +28,7 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
-  font-family: var(--serif); font-size: 19px; line-height: 1.55;
+  font-family: var(--serif); font-size: 19px; line-height: 1.4;
   -webkit-font-smoothing: antialiased;
 }
 img { display: block; max-width: 100%; height: auto; }
@@ -60,7 +60,7 @@ section { padding: 96px 0; }
 .pair p { margin: 0; font-family: var(--sans); font-weight: 500; font-size: clamp(24px, 4.6vw, 46px); line-height: 1.14; letter-spacing: -0.025em; }
 .pair .l { color: var(--ink); }
 .pair .r { color: var(--grey); }
-.pair .brand { font-family: var(--mono); font-weight: 500; letter-spacing: 0; font-size: 0.86em; }
+.pair .brand { text-transform: uppercase; font-family: var(--mono); font-weight: 500; letter-spacing: 0; font-size: 0.86em; }
 .js .pair { opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s ease; }
 .js .pair.in { opacity: 1; transform: none; }
 .js .pair .r { transition-delay: .18s; }
@@ -102,7 +102,7 @@ summary {
   padding: 24px 0; font-family: var(--sans); font-weight: 500; font-size: clamp(20px, 3vw, 26px); letter-spacing: -0.015em;
 }
 summary::-webkit-details-marker { display: none; }
-summary::after { content: "+"; font-family: var(--mono); font-weight: 400; transition: transform .25s; }
+summary::after { content: "+"; font-family: var(--mono); text-transform: uppercase; font-weight: 400; transition: transform .25s; }
 details[open] summary::after { transform: rotate(45deg); }
 details p { margin: 0; padding: 0 0 28px; max-width: 680px; color: var(--grey); }
 
