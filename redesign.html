@@ -51,7 +51,10 @@ section { padding-block: 96px; }
 .stage { position: relative; height: 150vw; max-height: 820px; }
 .tile { position: absolute; margin: 0; }
 .tile img { width: 100%; height: 100%; object-fit: cover; }
-.vlabel { position: absolute; top: 0; left: calc(100% + 8px); writing-mode: vertical-rl; color: var(--ink); white-space: nowrap; }
+.vlabel { position: absolute; top: 0; left: calc(100% + 8px); writing-mode: vertical-rl; color: var(--ink); white-space: nowrap; opacity: 0; transform: translateY(8px); transition: opacity .35s ease, transform .35s ease; pointer-events: none; }
+.tile img { transition: filter .4s ease; filter: brightness(.82); }
+.tile:hover img { filter: none; }
+.tile:hover .vlabel { opacity: 1; transform: none; }
 .vlabel span, .hlabel span { color: var(--dim); margin-left: 10px; }
 .vlabel span { margin: 10px 0 0; }
 .hlabel { margin-top: 8px; }
@@ -132,6 +135,20 @@ section { padding-block: 96px; }
   .cell:hover .word { mix-blend-mode: difference; }
 }
 
+/* global record strip */
+.where { overflow-x: clip; }
+.record { margin-top: 96px; }
+.record .label { color: var(--mute); margin-bottom: 20px; }
+.marquee { margin-inline: calc(var(--gutter) * -1); overflow: hidden; border-block: 1px solid var(--rule); padding-block: 20px; }
+.track { display: flex; width: max-content; animation: slide 48s linear infinite; }
+.marquee:hover .track { animation-play-state: paused; }
+.set { display: flex; list-style: none; margin: 0; padding: 0; }
+.set li { padding-inline: 0.35em; font-size: clamp(56px, 10vw, 168px); font-weight: 800; letter-spacing: -0.045em; line-height: 1; text-transform: uppercase; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px var(--mute); transition: color .3s ease, -webkit-text-stroke-color .3s ease; }
+.set li:hover { color: var(--ink); -webkit-text-stroke-color: var(--ink); }
+.set li sup { font-family: var(--mono); font-weight: 400; font-size: 0.12em; letter-spacing: 0.04em; color: var(--mute); -webkit-text-stroke: 0; vertical-align: top; position: relative; top: 0.6em; margin-left: 0.2em; }
+.set li::after { content: "/"; font-family: var(--mono); font-weight: 400; font-size: 0.3em; color: var(--dim); -webkit-text-stroke: 0; margin-left: 0.9em; vertical-align: middle; }
+@keyframes slide { to { transform: translateX(-50%); } }
+
 /* faq */
 .faq h2 { font-size: clamp(32px, 5vw, 64px); margin-bottom: 48px; }
 details { border-top: 1px solid var(--rule); }
@@ -186,6 +203,9 @@ footer .credits { color: var(--dim); max-width: 760px; line-height: 1.7; font-si
   .faq .wrap { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .track { animation: none; width: auto; }
+  .set { flex-wrap: wrap; }
+  .set[aria-hidden] { display: none; }
   .js .pair { opacity: 1; transform: none; transition: none; }
   .tilt { transform: none !important; }
   .cell img { transition: none; }
@@ -291,6 +311,19 @@ footer .credits { color: var(--dim); max-width: 760px; line-height: 1.7; font-si
       <div class="cell"><img src="assets/photos/energy.jpg" alt="" loading="lazy"><p class="word">Energy</p><p class="meta mono"><span>02</span></p></div>
       <div class="cell"><img src="assets/photos/airports.jpg" alt="" loading="lazy"><p class="word">Airports</p><p class="meta mono"><span>03</span></p></div>
       <div class="cell"><img src="assets/photos/health.jpg" alt="" loading="lazy"><p class="word">Health</p><p class="meta mono"><span>04</span></p></div>
+    </div>
+    <div class="record">
+      <p class="mono label">Built across 18 countries</p>
+      <div class="marquee">
+        <div class="track">
+          <ul class="set">
+            <li>Water<sup>01</sup></li><li>Energy<sup>02</sup></li><li>Telecom<sup>03</sup></li><li>Cities<sup>04</sup></li><li>Formula E<sup>05</sup></li><li>Healthcare<sup>06</sup></li>
+          </ul>
+          <ul class="set" aria-hidden="true">
+            <li>Water<sup>01</sup></li><li>Energy<sup>02</sup></li><li>Telecom<sup>03</sup></li><li>Cities<sup>04</sup></li><li>Formula E<sup>05</sup></li><li>Healthcare<sup>06</sup></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
