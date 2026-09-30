@@ -41,7 +41,7 @@ section { padding: 96px 0; }
 
 /* header */
 .top { position: sticky; top: 0; z-index: 10; background: rgba(250,249,245,.92); backdrop-filter: blur(8px); }
-.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.top .wrap { display: flex; align-items: center; justify-content: center; height: 64px; }
 .top img { height: 20px; width: auto; }
 .btn {
   display: inline-flex; align-items: center; gap: 10px; font-family: var(--sans); font-weight: 500;
@@ -54,8 +54,12 @@ section { padding: 96px 0; }
 .btn.solid:hover { background: var(--ink); border-color: var(--ink); }
 .btn:focus-visible, summary:focus-visible, .step:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
+/* name */
+.name { padding: 72px 0 0; }
+.name h1 { font-weight: 700; text-transform: uppercase; letter-spacing: -0.04em; line-height: 0.95; font-size: clamp(44px, 13vw, 168px); }
+.name sup { font-size: 0.4em; vertical-align: super; letter-spacing: 0; }
 /* hero */
-.hero { padding: 72px 0 40px; }
+.hero { padding: 48px 0 40px; }
 .pair { display: grid; gap: 6px; padding: 28px 0; }
 .pair p { margin: 0; font-family: var(--sans); font-weight: 500; font-size: clamp(24px, 4.6vw, 46px); line-height: 1.14; letter-spacing: -0.025em; }
 .pair .l { color: var(--ink); }
@@ -115,7 +119,8 @@ footer img { height: 16px; width: auto; }
 @media (min-width: 760px) {
   :root { --gutter: 40px; }
   .top img { height: 22px; }
-  .hero { padding: 120px 0 60px; }
+  .name { padding: 112px 0 0; }
+  .hero { padding: 80px 0 60px; }
   .pair { grid-template-columns: 1fr 1fr; gap: 56px; padding: 44px 0; align-items: start; }
   .pair .l { text-align: right; }
   .pair .r { text-align: left; }
@@ -142,6 +147,8 @@ footer img { height: 16px; width: auto; }
 </header>
 
 <main id="top">
+
+<div class="name"><div class="wrap"><h1>Sand Cohort<sup>1</sup></h1></div></div>
 
 <section class="hero" aria-label="Introduction">
   <div class="wrap">
