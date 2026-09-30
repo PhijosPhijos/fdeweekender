@@ -37,6 +37,8 @@ a { color: inherit; }
 h1, h2, h3 { font-family: var(--sans); font-weight: 600; letter-spacing: -0.02em; line-height: 1.12; margin: 0; }
 .mono { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
 sup { font-size: 0.6em; line-height: 0; vertical-align: super; }
+sup::before { content: "("; }
+sup::after { content: ")"; }
 section { padding: 96px 0; }
 
 /* header */
@@ -60,10 +62,11 @@ section { padding: 96px 0; }
 .pair p { margin: 0; font-family: var(--sans); font-weight: 500; font-size: clamp(18px, 2.3vw, 26px); line-height: 1.25; letter-spacing: -0.025em; }
 .pair .l { color: var(--ink); }
 .pair .r { color: var(--grey); }
-.mark { text-align: center; padding: 24px 0 32px; }
-.mark h1 { font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1; font-size: clamp(30px, 11vw, 150px); white-space: nowrap; }
-.mark sup { font-size: 0.4em; letter-spacing: 0; }
-.mark p { max-width: 480px; margin: 32px auto 0; font-size: 16px; color: var(--grey); }
+.mark { text-align: center; padding: 16px 0 24px; }
+.mark h1 { font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: -0.04em; line-height: 1; font-size: clamp(56px, 19vw, 230px); }
+.mark sup { font-size: 0.26em; letter-spacing: 0; font-weight: 500; }
+.lede { max-width: 480px; margin: 40px auto 0; text-align: center; font-size: 16px; color: var(--grey); }
+.lede .brand { font-family: var(--mono); font-size: 0.86em; letter-spacing: 0; text-transform: uppercase; color: var(--ink); }
 .pair .brand { text-transform: uppercase; font-family: var(--mono); font-weight: 500; letter-spacing: 0; font-size: 0.86em; }
 .js .pair { opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s ease; }
 .js .pair.in { opacity: 1; transform: none; }
@@ -77,8 +80,9 @@ section { padding: 96px 0; }
 .building b { font-family: var(--sans); font-weight: 700; }
 
 /* steps */
-.steps-head h2 { font-size: clamp(30px, 5vw, 56px); }
-.steps-head p { margin: 20px 0 0; color: var(--grey); font-size: clamp(19px, 2.4vw, 22px); }
+.steps-head { text-align: center; }
+.steps-head h2 { font-size: clamp(30px, 5vw, 56px); text-wrap: balance; }
+.steps-head p { margin: 20px auto 0; color: var(--grey); font-size: clamp(19px, 2.4vw, 22px); }
 .steps { list-style: none; margin: 64px 0 0; padding: 0; display: grid; gap: 0; }
 .step { position: relative; padding: 24px 0 28px; border-top: 1px solid var(--rule); color: var(--mute); transition: color .4s; cursor: default; }
 .step::before { content: ""; position: absolute; left: 0; top: -1px; height: 1px; width: 0; background: var(--ink); transition: width .5s ease; }
@@ -90,7 +94,7 @@ section { padding: 96px 0; }
 
 /* where */
 .where { border-top: 1px solid var(--rule); }
-.where .intro { max-width: 720px; margin: 0 0 64px; font-size: clamp(19px, 2.4vw, 24px); }
+.where .intro { max-width: 720px; margin: 0 auto 64px; text-align: center; font-size: clamp(19px, 2.4vw, 24px); }
 .grid { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--rule); }
 .cell { padding: 28px 0 24px; border-bottom: 1px solid var(--rule); }
 .cell .word { font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 9vw, 72px); line-height: 1; letter-spacing: -0.02em; margin: 0 0 56px; }
@@ -98,7 +102,7 @@ section { padding: 96px 0; }
 
 /* faq */
 .faq { border-top: 1px solid var(--rule); }
-.faq h2 { font-size: clamp(30px, 5vw, 56px); margin-bottom: 48px; }
+.faq h2 { font-size: clamp(30px, 5vw, 56px); margin-bottom: 48px; text-align: center; }
 details { border-top: 1px solid var(--rule); }
 details:last-of-type { border-bottom: 1px solid var(--rule); }
 summary {
@@ -111,16 +115,17 @@ details[open] summary::after { transform: rotate(45deg); }
 details p { margin: 0; padding: 0 0 28px; max-width: 680px; color: var(--grey); }
 
 /* cta */
-.cta { border-top: 1px solid var(--rule); text-align: left; padding: 120px 0; }
+.cta { border-top: 1px solid var(--rule); text-align: center; padding: 120px 0; }
 footer { padding: 0 0 48px; }
-footer .wrap { display: flex; align-items: center; justify-content: space-between; }
+footer .wrap { display: flex; align-items: center; justify-content: center; }
 footer img { height: 16px; width: auto; }
 
 @media (min-width: 760px) {
   :root { --gutter: 40px; }
   .top img { height: 22px; }
   .hero { padding: 96px 0 60px; }
-  .mark { padding-bottom: 72px; }
+  .mark { padding-bottom: 56px; }
+  .lede { margin-top: 56px; }
   .pair { grid-template-columns: 1fr 1fr; gap: 56px; padding: 28px 0; align-items: start; }
   .pair .l { text-align: right; }
   .pair .r { text-align: left; }
@@ -151,10 +156,7 @@ footer img { height: 16px; width: auto; }
 
 <section class="hero" aria-label="Introduction">
   <div class="wrap">
-    <div class="mark">
-      <h1>SAND COHORT<sup>1</sup></h1>
-      <p>Your opportunity to come and experience our work environment, put your skills to the test and deploy AI where it matters most.</p>
-    </div>
+    <div class="mark"><h1>COHORT<sup>1</sup></h1></div>
     <div class="pair">
       <p class="l">We're making critical infrastructure intelligent.</p>
       <p class="r">But we need people on the ground to deliver it.</p>
@@ -167,6 +169,7 @@ footer img { height: 16px; width: auto; }
       <p class="l">Sand has built this legacy in systems across 18 countries already.</p>
       <p class="r">Now we're bringing it to the US.</p>
     </div>
+    <p class="lede"><span class="brand">SAND COHORT<sup>1</sup></span> is your opportunity to come and experience our work environment, put your skills to the test and deploy AI where it matters most.</p>
   </div>
 </section>
 
@@ -192,7 +195,7 @@ footer img { height: 16px; width: auto; }
         <p>Applications are open to engineers based in the US. Candidates are selected based on their technical experience, their work with clients, and their interest in critical infrastructure.</p>
       </li>
       <li class="step" tabindex="0">
-        <span class="mono">02</span>
+        <span class="mono">02 / NOV 6 TO 8</span>
         <h3>Immerse</h3>
         <p>Shortlisted candidates are invited to an expenses paid weekend with Sand in New York. It's two days inside our work: a real problem, a small team, without AI on the first day and with AI on the second. Candidates meet the people they'd work with and see how Sand runs from the inside.</p>
       </li>
@@ -207,7 +210,7 @@ footer img { height: 16px; width: auto; }
 
 <section class="where">
   <div class="wrap">
-    <h2 class="mono" style="font-weight:400;margin-bottom:28px;color:var(--grey)">Where you’ll work</h2>
+    <h2 class="mono" style="font-weight:400;margin-bottom:28px;color:var(--grey);text-align:center">Where you’ll work</h2>
     <p class="intro">Forward deployed engineers work alongside cities, utilities and public agencies across the US, building the systems behind the services people use every day.</p>
     <div class="grid">
       <div class="cell"><p class="word">Water</p><p class="mono" style="margin:0"><span>01</span></p></div>
