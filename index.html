@@ -72,14 +72,12 @@ section { padding: 96px 0; }
 .js .pair.in { opacity: 1; transform: none; }
 .js .pair .r { transition-delay: .18s; }
 
-/* sense analyse act */
+/* building */
 .building { border-top: 1px solid var(--rule); }
-.saa { list-style: none; margin: 0; padding: 0; display: grid; }
-.saa li { padding: 28px 0 32px; border-top: 1px solid var(--rule); display: grid; gap: 14px; align-content: start; min-width: 0; }
-.saa li:first-child { border-top: 0; padding-top: 0; }
-.saa .mono { color: var(--grey); }
-.saa h2 { font-size: clamp(40px, 5vw, 60px); font-weight: 700; letter-spacing: -0.04em; line-height: 1; }
-.saa p { margin: 0; max-width: 34ch; font-size: 17px; color: var(--grey); }
+.narrow { max-width: 720px; margin: 0 auto; }
+.building h2 { text-align: center; font-size: clamp(28px, 4vw, 40px); margin-bottom: 44px; }
+.building p { margin: 0 0 26px; font-size: clamp(19px, 2.4vw, 22px); }
+.building b { font-family: var(--sans); font-weight: 700; }
 
 /* steps */
 .steps-head { text-align: center; }
@@ -141,8 +139,6 @@ footer img { height: 16px; width: auto; }
   .cell { padding: 28px 24px 24px; border-bottom: 0; border-left: 1px solid var(--rule); min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
   .cell:first-child { border-left: 0; padding-left: 0; }
   .cell .word { margin: 0; font-size: clamp(36px, 4.6vw, 60px); }
-  .saa { grid-template-columns: repeat(3, 1fr); gap: 40px; }
-  .saa li, .saa li:first-child { padding: 28px 0 0; border-top: 1px solid var(--rule); }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -182,12 +178,11 @@ footer img { height: 16px; width: auto; }
 </section>
 
 <section class="building">
-  <div class="wrap">
-    <ol class="saa">
-      <li><span class="mono">01</span><h2>Sense.</h2><p>Connect the sensors, meters and networks that cities and utilities already run, so their systems can be seen in real time.</p></li>
-      <li><span class="mono">02</span><h2>Analyse.</h2><p>Turn that data into an understanding of why things happen, with models built for each kind of infrastructure.</p></li>
-      <li><span class="mono">03</span><h2>Act.</h2><p>Give operators clear decisions and put them to work in the systems people rely on every day.</p></li>
-    </ol>
+  <div class="wrap narrow">
+    <h2>What we’re building with Sand Cohort<sup>1</sup></h2>
+    <p><b>Impact.</b> The systems people rely on every day, from water networks to city services, deserve AI that works.</p>
+    <p><b>Growth.</b> Sand Cohort<sup>1</sup> brings together engineers who build and run Physical AI inside critical infrastructure.</p>
+    <p><b>Team.</b> Engineers join as a cohort and start their first deployments together.</p>
   </div>
 </section>
 
