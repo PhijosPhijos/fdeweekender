@@ -55,13 +55,13 @@ section { padding: 96px 0; }
 .btn:focus-visible, summary:focus-visible, .step:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 /* hero */
-.hero { padding: 48px 0 40px; }
-.pair { display: grid; gap: 6px; padding: 28px 0; }
-.pair p { margin: 0; font-family: var(--sans); font-weight: 500; font-size: clamp(24px, 4.6vw, 46px); line-height: 1.14; letter-spacing: -0.025em; }
+.hero { padding: 56px 0 40px; }
+.pair { display: grid; gap: 4px; padding: 20px 0; }
+.pair p { margin: 0; font-family: var(--sans); font-weight: 500; font-size: clamp(18px, 2.3vw, 26px); line-height: 1.25; letter-spacing: -0.025em; }
 .pair .l { color: var(--ink); }
 .pair .r { color: var(--grey); }
-.mark { text-align: center; padding: 72px 0 24px; }
-.mark h1 { font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1; font-size: clamp(30px, 9.4vw, 128px); white-space: nowrap; }
+.mark { text-align: center; padding: 24px 0 32px; }
+.mark h1 { font-family: var(--mono); font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1; font-size: clamp(30px, 11vw, 150px); white-space: nowrap; }
 .mark sup { font-size: 0.4em; letter-spacing: 0; }
 .mark p { max-width: 480px; margin: 32px auto 0; font-size: 16px; color: var(--grey); }
 .pair .brand { text-transform: uppercase; font-family: var(--mono); font-weight: 500; letter-spacing: 0; font-size: 0.86em; }
@@ -119,8 +119,9 @@ footer img { height: 16px; width: auto; }
 @media (min-width: 760px) {
   :root { --gutter: 40px; }
   .top img { height: 22px; }
-  .hero { padding: 80px 0 60px; }
-  .pair { grid-template-columns: 1fr 1fr; gap: 56px; padding: 44px 0; align-items: start; }
+  .hero { padding: 96px 0 60px; }
+  .mark { padding-bottom: 72px; }
+  .pair { grid-template-columns: 1fr 1fr; gap: 56px; padding: 28px 0; align-items: start; }
   .pair .l { text-align: right; }
   .pair .r { text-align: left; }
   section { padding: 140px 0; }
@@ -150,6 +151,10 @@ footer img { height: 16px; width: auto; }
 
 <section class="hero" aria-label="Introduction">
   <div class="wrap">
+    <div class="mark">
+      <h1>SAND COHORT<sup>1</sup></h1>
+      <p>Your opportunity to come and experience our work environment, put your skills to the test and deploy AI where it matters most.</p>
+    </div>
     <div class="pair">
       <p class="l">We're making critical infrastructure intelligent.</p>
       <p class="r">But we need people on the ground to deliver it.</p>
@@ -161,10 +166,6 @@ footer img { height: 16px; width: auto; }
     <div class="pair">
       <p class="l">Sand has built this legacy in systems across 18 countries already.</p>
       <p class="r">Now we're bringing it to the US.</p>
-    </div>
-    <div class="mark">
-      <h1>SAND COHORT<sup>1</sup></h1>
-      <p>Your opportunity to come and experience our work environment, put your skills to the test and deploy AI where it matters most.</p>
     </div>
   </div>
 </section>
