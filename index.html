@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sand Cohort 1</title>
+<meta name="description" content="Sand Cohort 1 is Sand Technologies' first US hiring cohort of forward deployed engineers. Apply, build with us for a weekend, and join the team.">
+<meta name="theme-color" content="#faf9f5">
+<link rel="icon" href="assets/sandlogodark.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Lilex:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf9f5;
+  --ink: #0a0a0a;
+  --grey: #4d4d4d;
+  --mute: #9a9993;
+  --rule: #d9d7cf;
+  --accent: #80a2b4;
+  --sans: "Inter Tight", system-ui, sans-serif;
+  --serif: "Source Serif 4", Georgia, serif;
+  --mono: "Lilex", ui-monospace, monospace;
+  --gutter: 20px;
+  --max: 1180px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--serif); font-size: 19px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+h1, h2, h3 { font-family: var(--sans); font-weight: 600; letter-spacing: -0.02em; line-height: 1.12; margin: 0; }
+.mono { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; }
+sup { font-size: 0.6em; line-height: 0; vertical-align: super; }
+section { padding: 96px 0; }
+
+/* header */
+.top { position: sticky; top: 0; z-index: 10; background: rgba(250,249,245,.92); backdrop-filter: blur(8px); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.top img { height: 20px; width: auto; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; font-family: var(--sans); font-weight: 500;
+  font-size: 15px; text-decoration: none; padding: 10px 18px; border-radius: 999px;
+  border: 1px solid var(--rule); background: transparent; color: var(--ink);
+  transition: background .2s, border-color .2s, color .2s;
+}
+.btn:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn.solid { background: var(--accent); border-color: var(--accent); color: #fff; padding: 16px 28px; font-size: 17px; }
+.btn.solid:hover { background: var(--ink); border-color: var(--ink); }
+.btn:focus-visible, summary:focus-visible, .step:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* hero */
+.hero { padding: 72px 0 40px; }
+.pair { display: grid; gap: 6px; padding: 28px 0; }
+.pair p { margin: 0; font-family: var(--sans); font-weight: 500; font-size: clamp(24px, 4.6vw, 46px); line-height: 1.14; letter-spacing: -0.025em; }
+.pair .l { color: var(--ink); }
+.pair .r { color: var(--grey); }
+.pair .brand { font-family: var(--mono); font-weight: 500; letter-spacing: 0; font-size: 0.86em; }
+.js .pair { opacity: 0; transform: translateY(22px); transition: opacity .9s ease, transform .9s ease; }
+.js .pair.in { opacity: 1; transform: none; }
+.js .pair .r { transition-delay: .18s; }
+
+/* building */
+.building { border-top: 1px solid var(--rule); }
+.narrow { max-width: 720px; margin: 0 auto; }
+.building h2 { text-align: center; font-size: clamp(28px, 4vw, 40px); margin-bottom: 44px; }
+.building p { margin: 0 0 26px; font-size: clamp(19px, 2.4vw, 22px); }
+.building b { font-family: var(--sans); font-weight: 700; }
+
+/* steps */
+.steps-head h2 { font-size: clamp(30px, 5vw, 56px); }
+.steps-head p { margin: 20px 0 0; color: var(--grey); font-size: clamp(19px, 2.4vw, 22px); }
+.steps { list-style: none; margin: 64px 0 0; padding: 0; display: grid; gap: 0; }
+.step { position: relative; padding: 24px 0 28px; border-top: 1px solid var(--rule); color: var(--mute); transition: color .4s; cursor: default; }
+.step::before { content: ""; position: absolute; left: 0; top: -1px; height: 1px; width: 0; background: var(--ink); transition: width .5s ease; }
+.step.on { color: var(--ink); }
+.step.on::before { width: 100%; }
+.step .mono { display: block; margin-bottom: 14px; }
+.step h3 { font-size: 26px; margin-bottom: 12px; }
+.step p { margin: 0; font-size: 17px; line-height: 1.55; }
+
+/* where */
+.where { border-top: 1px solid var(--rule); }
+.where .intro { max-width: 720px; margin: 0 0 64px; font-size: clamp(19px, 2.4vw, 24px); }
+.grid { display: grid; grid-template-columns: 1fr; border-top: 1px solid var(--rule); }
+.cell { padding: 28px 0 24px; border-bottom: 1px solid var(--rule); }
+.cell .word { font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 9vw, 72px); line-height: 1; letter-spacing: -0.02em; margin: 0 0 56px; }
+.cell .mono { display: flex; gap: 14px; color: var(--grey); }
+
+/* faq */
+.faq { border-top: 1px solid var(--rule); }
+.faq h2 { font-size: clamp(30px, 5vw, 56px); margin-bottom: 48px; }
+details { border-top: 1px solid var(--rule); }
+details:last-of-type { border-bottom: 1px solid var(--rule); }
+summary {
+  list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 24px; align-items: baseline;
+  padding: 24px 0; font-family: var(--sans); font-weight: 500; font-size: clamp(20px, 3vw, 26px); letter-spacing: -0.015em;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-family: var(--mono); font-weight: 400; transition: transform .25s; }
+details[open] summary::after { transform: rotate(45deg); }
+details p { margin: 0; padding: 0 0 28px; max-width: 680px; color: var(--grey); }
+
+/* cta */
+.cta { border-top: 1px solid var(--rule); text-align: left; padding: 120px 0; }
+footer { padding: 0 0 48px; }
+footer .wrap { display: flex; align-items: center; justify-content: space-between; }
+footer img { height: 16px; width: auto; }
+
+@media (min-width: 760px) {
+  :root { --gutter: 40px; }
+  .top img { height: 22px; }
+  .hero { padding: 120px 0 60px; }
+  .pair { grid-template-columns: 1fr 1fr; gap: 56px; padding: 44px 0; align-items: start; }
+  .pair .l { text-align: right; }
+  .pair .r { text-align: left; }
+  section { padding: 140px 0; }
+  .steps { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .grid { grid-template-columns: repeat(4, 1fr); }
+  .cell { padding: 28px 24px 24px; border-bottom: 0; border-left: 1px solid var(--rule); min-height: 280px; display: flex; flex-direction: column; justify-content: space-between; }
+  .cell:first-child { border-left: 0; padding-left: 0; }
+  .cell .word { margin: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .pair { opacity: 1; transform: none; transition: none; }
+}
+</style>
+<script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a href="#top" aria-label="Sand"><img src="assets/sandlogodark.webp" alt="Sand" width="2000" height="513"></a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero" aria-label="Introduction">
+  <div class="wrap">
+    <div class="pair">
+      <p class="l">Critical infrastructure is becoming intelligent.</p>
+      <p class="r">It still needs people on the ground.</p>
+    </div>
+    <div class="pair">
+      <p class="l">Cities and utilities across the US want to use AI well.</p>
+      <p class="r">Engineers want work with real consequences.</p>
+    </div>
+    <div class="pair">
+      <p class="l">Sand has built these systems in 18 countries.</p>
+      <p class="r"><span class="brand">SAND COHORT<sup>1</sup></span> brings forward deployed engineers together to build them in the US.</p>
+    </div>
+  </div>
+</section>
+
+<section class="building">
+  <div class="wrap narrow">
+    <h2>What we’re building with Sand Cohort<sup>1</sup></h2>
+    <p><b>Impact.</b> The systems people rely on every day, from water networks to city services, deserve AI that works.</p>
+    <p><b>Growth.</b> Sand Cohort<sup>1</sup> brings together engineers who build and run Physical AI inside critical infrastructure.</p>
+    <p><b>Team.</b> Engineers join as a cohort and start their first deployments together.</p>
+  </div>
+</section>
+
+<section class="steps-section" id="apply">
+  <div class="wrap">
+    <div class="steps-head">
+      <h2>Become an FDE. Build what matters.</h2>
+      <p>Apply, build with us for a weekend, and join the team.</p>
+    </div>
+    <ol class="steps">
+      <li class="step on" tabindex="0">
+        <span class="mono">01</span>
+        <h3>Apply</h3>
+        <p>Applications are open to engineers based in the US. Candidates are selected based on their technical experience, their work with clients, and their interest in critical infrastructure.</p>
+      </li>
+      <li class="step" tabindex="0">
+        <span class="mono">02</span>
+        <h3>Build</h3>
+        <p>Shortlisted candidates spend an expenses paid weekend with Sand in New York. The weekend is the final stage of hiring. Candidates work in small teams on a real problem, without AI on the first day and with AI on the second. They meet the team, learn how Sand works, and decide whether Sand is right for them.</p>
+      </li>
+      <li class="step" tabindex="0">
+        <span class="mono">03</span>
+        <h3>Join</h3>
+        <p>Everyone hears back after the weekend. New hires start together as Sand Cohort<sup>1</sup> and join client deployments across the US.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="where">
+  <div class="wrap">
+    <h2 class="mono" style="font-weight:400;margin-bottom:28px;color:var(--grey)">Where you’ll work</h2>
+    <p class="intro">Forward deployed engineers work alongside cities, utilities and public agencies across the US, building the systems behind the services people use every day.</p>
+    <div class="grid">
+      <div class="cell"><p class="word">Water</p><p class="mono" style="margin:0"><span>01</span></p></div>
+      <div class="cell"><p class="word">Energy</p><p class="mono" style="margin:0"><span>02</span></p></div>
+      <div class="cell"><p class="word">Telecom</p><p class="mono" style="margin:0"><span>03</span></p></div>
+      <div class="cell"><p class="word">Cities</p><p class="mono" style="margin:0"><span>04</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap narrow">
+    <h2>FAQ</h2>
+    <details name="faq" open>
+      <summary><span>What is Sand Cohort<sup>1</sup>?</span></summary>
+      <p>Sand Cohort<sup>1</sup> is how Sand is hiring its first forward deployed engineers in the US. These are full time roles at Sand. Engineers who join work on real client projects across water, energy, telecom and cities.</p>
+    </details>
+    <details name="faq">
+      <summary>Why a weekend?</summary>
+      <p>This role needs more than an interview. The weekend lets candidates show how they work with a team on a real problem, and gives them a clear picture of Sand before they decide.</p>
+    </details>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <a class="btn solid" href="https://lnkd.in/e2sePQZw">Apply to join Sand Cohort<sup>1</sup> <span aria-hidden="true">↗</span></a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/sandlogodark.webp" alt="Sand" width="2000" height="513">
+  </div>
+</footer>
+
+<script>
+(function () {
+  var pairs = document.querySelectorAll(".pair");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    pairs.forEach(function (p) { io.observe(p); });
+  } else { pairs.forEach(function (p) { p.classList.add("in"); }); }
+
+  var steps = [].slice.call(document.querySelectorAll(".step"));
+  function activate(i) { steps.forEach(function (s, j) { s.classList.toggle("on", j === i); }); }
+  steps.forEach(function (s, i) {
+    ["mouseenter", "focus", "click"].forEach(function (ev) { s.addEventListener(ev, function () { activate(i); }); });
+  });
+})();
+</script>
+</body>
+</html>
